@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Pillora",
+    "slug": "pillora",
+    "scheme": "pillora",
+    "version": "1.0.0",
+    "platforms": ["android", "ios", "web"],
+    "orientation": "portrait",
+    
+    "updates": {
+      "enabled": false
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
+
