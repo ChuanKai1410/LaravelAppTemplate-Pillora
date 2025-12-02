@@ -4,6 +4,7 @@
     "slug": "pillora",
     "scheme": "pillora",
     "version": "1.0.0",
+    "main": "index.jsx",
     "platforms": ["android", "ios", "web"],
     "orientation": "portrait",
     

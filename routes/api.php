@@ -28,4 +28,30 @@ Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('api.logout');
+    
+    // Dashboard
+    Route::get('/dashboard', [\App\Http\Controllers\Api\DashboardController::class, 'index']);
+    
+    // Medications
+    Route::apiResource('medications', \App\Http\Controllers\Api\MedicationController::class);
+    Route::post('/medications/scan', [\App\Http\Controllers\Api\MedicationController::class, 'scan']);
+    
+    // Analytics
+    Route::get('/analytics', [\App\Http\Controllers\Api\AnalyticsController::class, 'index']);
+    
+    // Reminders
+    Route::get('/reminders', [\App\Http\Controllers\Api\ReminderController::class, 'index']);
+    Route::post('/reminders', [\App\Http\Controllers\Api\ReminderController::class, 'store']);
+    Route::put('/reminders/{reminder}', [\App\Http\Controllers\Api\ReminderController::class, 'update']);
+    Route::delete('/reminders/{reminder}', [\App\Http\Controllers\Api\ReminderController::class, 'destroy']);
+    Route::put('/reminders/settings', [\App\Http\Controllers\Api\ReminderController::class, 'updateSettings']);
+    
+    // Pharmacies
+    Route::get('/pharmacies', [\App\Http\Controllers\Api\PharmacyController::class, 'index']);
+    
+    // Orders
+    Route::apiResource('orders', \App\Http\Controllers\Api\OrderController::class);
+    
+    // Payments
+    Route::post('/payments', [\App\Http\Controllers\Api\PaymentController::class, 'process']);
 });

@@ -46,4 +46,36 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the medications for the user.
+     */
+    public function medications()
+    {
+        return $this->hasMany(Medication::class);
+    }
+
+    /**
+     * Get the reminders for the user.
+     */
+    public function reminders()
+    {
+        return $this->hasMany(Reminder::class);
+    }
+
+    /**
+     * Get the orders for the user.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
+     * Get the intakes for the user.
+     */
+    public function intakes()
+    {
+        return $this->hasMany(MedicationIntake::class);
+    }
 }
